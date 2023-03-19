@@ -1,0 +1,46 @@
+<header n:imported="components/header"/>
+<add n:imported="components/add-task"/>
+<task n:imported="components/task"/>
+<style>
+    .main{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .task-container{
+        margin: auto;
+        margin-top: 1rem;
+        width: 55%;
+    }
+</style>
+<template>
+    <header></header>
+    <div class="main">
+        <add></add>
+        <div class="task-container" n:for="let task in ToDoList" on:addtask="addTask($data)" on:removetask="removeTask($data)" n:reload="tasks">
+            <task id="{task}">{ToDoList[task]}</task>
+        </div>
+    </div>
+</template>
+<script>
+
+let ToDoList = {
+    "1" : "Wake Up",
+    "2" : "Meditate",
+    "3" : "Read Book"
+};
+
+function addTask(data){
+    let {name} = data;
+    let id = Object.keys(ToDoList).reverse()[0] + 1; // Creating an Id for a new Task
+    ToDoList[id] = name;
+    window.nijor.reload('tasks'); // Reload the element with the ' n:reload="task" ' attribute.
+}
+
+function removeTask(id){
+    delete ToDoList[id];
+    window.nijor.reload('tasks'); // Reload the element with the ' n:reload="task" ' attribute.
+}
+
+</script>

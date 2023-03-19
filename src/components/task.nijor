@@ -1,0 +1,29 @@
+<style>
+    div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        background-color:rgb(219, 218, 218);
+    }
+    button{
+        background-color: transparent;
+        border: none;
+    }
+    button:hover{
+        color: red;
+    }
+</style>
+<template specs={id,_text_}>
+    <div>
+        <span>{_text_}</span>
+        <button on:click="deleteTask('{id}')">&#x2715;</button>
+    </div>
+</template>
+<script>
+    function deleteTask(id){
+        window.nijor.emitEvent('removetask',id); // Fire the removetask event
+    }
+</script>

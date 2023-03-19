@@ -1,0 +1,32 @@
+<style>
+    .container{
+        width: 100vw;
+        height: 5rem;
+        background-color: #0099ff;
+        background-color:  rgb(15, 22, 26);;
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: row;
+    }
+    img{
+        margin: 0rem 1rem;
+        height: 4rem;
+        width: 4rem;
+        vertical-align: middle;
+    }
+    h2{
+        height: 100%;
+        padding: 0.5rem;
+        display: flex;
+        color: white;
+    }
+</style>
+<template>
+    <div class="container">
+        <a n:route="/"><img src="{Logo}"/></a>
+        <h2>To Do List</h2>
+    </div>
+</template>
+<script>
+    import Logo from 'images/logo.svg'; // Import the Logo ; you can import images from the src/images directory inside JS using ES6 imports. But this method is not recommended for large images.
+</script>

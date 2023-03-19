@@ -1,0 +1,33 @@
+<style>
+    div{
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        width: 55%;
+    }
+    input{
+        padding: 1rem;
+        border: 0.5px ridge rgba(0, 0, 0, 0.384);
+        width: 90%;
+    }
+    button{
+        padding: 1rem;
+        border: none;
+        background-color: #0099ff;
+        color: white;
+        width: 10%;
+    }
+</style>
+<template>
+    <div>
+        <input type="text" id="newTask" placeholder="Add a new Task ....">
+        <button on:click="AddTask()">Add</button>
+    </div>
+</template>
+<script>
+    function AddTask(){
+        let task = document.getElementById('newTask').value;
+        let id = Math.floor(Math.random()*100000);
+        window.nijor.emitEvent('addtask',{name:task}); // Fire the 'addtask' event
+    }
+</script>
